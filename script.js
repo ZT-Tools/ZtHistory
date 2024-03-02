@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ZT
 // @namespace    http://tampermonkey.net/
-// @version      2024-03-02
+// @version      v1.3
 // @description  Get Latest Viewed
 // @author       matthieuEv
 // @match        https://*/*
@@ -134,36 +134,84 @@
                     console.log("-------GetInformation-------")
                     url = window.location.href;
                     console.log("url: ",url)
-                    img_url = document.getElementsByTagName('img')[4].src;
+                    try{
+                        img_url = document.getElementsByTagName('img')[4].src;
+                    } catch(e){
+                        img_url = ""
+                    }
                     console.log("img_url: ",img_url);
-                    rating = document.getElementById('dle-content').innerHTML.match(/<strong><u>Critiques Spectateurs<\/u> :<\/strong>\s*([^<]+)\/5<br>/)[1];
+                    try{
+                        rating = document.getElementById('dle-content').innerHTML.match(/<strong><u>Critiques Spectateurs<\/u> :<\/strong>\s*([^<]+)\/5<br>/)[1];
+                    } catch(e){
+                        rating = ""
+                    }
                     console.log("rating: ",rating)
-                    name = document.getElementById('dle-content').getElementsByTagName('h1')[0].outerText;
+                    try{
+                        name = document.getElementById('dle-content').getElementsByTagName('h1')[0].outerText;
+                    } catch(e){
+                        name = ""
+                    }
                     console.log("name: ",name)
-                    quality = document.getElementById('dle-content').innerHTML.match(/<strong><u>Qualité<\/u> :<\/strong>\s*([^<]+)<br>/)[1];
+                    try{
+                        quality = document.getElementById('dle-content').innerHTML.match(/<strong><u>Qualité<\/u> :<\/strong>\s*([^<]+)<br>/)[1];
+                    } catch(e){
+                        quality = ""
+                    }
                     console.log("quality: ",quality)
-                    lang = "("+document.getElementById('dle-content').innerHTML.match(/<strong><u>Langue<\/u> :<\/strong>\s*([^<]+)<br>/)[1]+")";
+                    try{
+                        lang = "("+document.getElementById('dle-content').innerHTML.match(/<strong><u>Langue<\/u> :<\/strong>\s*([^<]+)<br>/)[1]+")";
+                    } catch(e){
+                        lang = ""
+                    }
                     console.log("lang: ",lang);
                     genre = "";
-                    date = document.getElementById('dle-content').innerHTML.match(/<strong><u>Année de production<\/u> :<\/strong>\s*([^<]+)<br>/)[1];
+                    try{
+                        date = document.getElementById('dle-content').innerHTML.match(/<strong><u>Année de production<\/u> :<\/strong>\s*([^<]+)<br>/)[1];
+                    } catch(e){
+                        date = ""
+                    }
                     console.log("date: ",date)
                     console.log("----------------------------")
                 }
                 else if (type == "serie"){
                     console.log("-------GetInformation-------")
-                    url = window.location.href;
+                    try{
+                        url = window.location.href;
+                    } catch(e){
+                        url = ""
+                    }
                     console.log("url: ",url)
-                    img_url = document.getElementsByTagName('img')[4].src;
+                    try{
+                        img_url = document.getElementsByTagName('img')[4].src;
+                    } catch(e){
+                        img_url = ""
+                    }
                     console.log("img_url: ",img_url);
-                    rating = document.getElementById('dle-content').innerHTML.match(/<strong><u>Critiques Spectateurs<\/u> :<\/strong>\s*([^<]+)\/5<br>/)[1];
+                    try{
+                        rating = document.getElementById('dle-content').innerHTML.match(/<strong><u>Critiques Spectateurs<\/u> :<\/strong>\s*([^<]+)\/5<br>/)[1];
+                    } catch(e){
+                        rating = ""
+                    }
                     console.log("rating: ",rating)
-                    name = document.getElementById('dle-content').getElementsByTagName('h1')[0].outerText;
+                    try{
+                        name = document.getElementById('dle-content').getElementsByTagName('h1')[0].outerText;
+                    } catch(e){
+                        name = ""
+                    }
                     console.log("name: ",name)
-                    quality = document.querySelector('.masha_index7').nextSibling.textContent.split('\n')[0];
+                    try{
+                        quality = document.querySelector('.masha_index7').nextSibling.textContent.split('\n')[0];
+                    } catch(e){
+                        quality = ""
+                    }
                     console.log("quality: ",quality)
                     lang = "";
                     genre = "";
-                    date = document.getElementById('dle-content').innerHTML.match(/<strong><u>Année de production<\/u> :<\/strong>\s*([^<]+)<br>/)[1];
+                    try{
+                        date = document.getElementById('dle-content').innerHTML.match(/<strong><u>Année de production<\/u> :<\/strong>\s*([^<]+)<br>/)[1];
+                    } catch(e){
+                        date = ""
+                    }
                     console.log("date: ",date)
                     console.log("----------------------------")
                 }
