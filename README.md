@@ -1,5 +1,5 @@
 # ZtHistory
-Add history to Zone site - download via Tampermonkey
+This repository is made for educational purposes only. It should not be used for any illegal activities. I do not condone or support the use of this repository for any illegal purposes.
 
 # Usage
 
